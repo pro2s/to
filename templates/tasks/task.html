@@ -1,0 +1,66 @@
+{% extends "index.html" %}
+
+{% block title %}{{title}}{% endblock %}
+{% block login %}{% endblock %}
+{% block content %}
+<div class="span2">
+&nbsp;
+</div>
+<div class="span8">
+    <div class="row">
+    <div class="span2 text-center">
+    ОАО «Могилевский завод
+    «Электродвигатель»
+    <br>
+    {% if task.parrent == None %}
+    <strong>{{cehname|item:task.cehuch}}</strong>
+    {%endif%}
+    <br>
+    Служебная записка<br>
+    {% if task.task_num and task.task_num  != '' %}{{task.task_date|date:"d.m.Y"}} № {{task.task_num}}<br> {%else%}
+    {{task.date_start|date:"d.m.Y"}} # {{task.id}}
+    {%endif%}
+    </div>
+    <div class="span4">
+    </div>
+    <div class="span2">
+    {% for t in subtask %}
+        &nbsp;{{cehname|item:t.cehuch}}{% if not forloop.last %},{% endif %}
+    {% endfor %}
+    </div>
+    </div>
+    <br>
+    <b>{{task.title}}</b><br><br>
+            
+    <p style="text-indent:30px;">{{task.desc}}</p><br>
+    <p>Отв.: {{task.owner}}</p>
+    <strong>Назначена:</strong> {{cehuch|item:task.cehuch}}<br>
+    {% if task.doer and task.doer != '' %}<strong>Исполнитель:</strong> {{task.doer}}<br>{% endif%}
+    Начало: {{task.date_start|date:"d.m.y"}}<br>
+    Завершение: {{task.date_end|date:"d.m.y"}}<br>
+    Статус: {{task.status}}<br>
+    <strong>История:</strong><br>
+    {% for status in task.usertaskstatus_set.all %}
+    {{status.status}} - {{status.date|date:"d.m.y"}} ({{status.user}})</br>
+    {% endfor%}
+    {% if files %}
+    <strong>Файлы:</strong><br>
+    {% for name, url in files.items %}
+    <a href="/to/media/{{url}}" target="_blank">{{name}}</a><br> 
+    {% endfor%}
+    {% endif%}
+    <br>
+    <div class="btn-group">
+        {% if not task.status.close_task %}
+        {% if user.cehuch == task.cehuch or user.id == task.owner.id %}
+        <a class="btn btn-default" href="/to/task?id={{task.id}}&status=close"><i class="icon-check"></i> Выполненно</a>
+        <a class="btn btn-default" href="/to/task?id={{task.id}}&status=deny"><i class="icon-ban-circle"></i> Отказать</a>
+        {% endif %}
+        {% endif %}
+    </div>        
+    
+</div>
+<div class="span2">
+&nbsp;
+</div>
+{% endblock %}

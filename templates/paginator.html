@@ -1,0 +1,15 @@
+<div class="pagination pagination-right">
+		<ul>
+			{% if items.has_previous %}
+				<li><a href="?{{name}}={{ items.previous_page_number }}{{tab}}">Prev</a></li>
+			{% endif %}
+		
+			{% for i in pages %}
+				<li {% if i == items.number %}class="active"{%endif%}><a href="?{{name}}={{ i }}{{tab}}">{{ i }}</a></li>
+			{% endfor %}
+
+			{% if items.has_next %}
+				<li><a href="?{{name}}={{ items.next_page_number }}{{tab}}">Next</a></li>
+			{% endif %}
+		</ul>
+</div>

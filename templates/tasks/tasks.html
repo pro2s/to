@@ -1,0 +1,121 @@
+{% extends "index.html" %}
+
+{% block title %}{{title}}{% endblock %}
+{% block tasks %}class="active"{% endblock %}
+{% block login %}{% endblock %}
+{% block content %}
+<div class="span12 no-print" style="padding-bottom:5px;">
+<a class="btn btn-default" href="/to/newtask"><i class="icon-plus"></i> Новая задача</a>
+</div>
+<div class="span12">
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Задача</th>
+        <th>Подзадачи</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for task in tasks %}
+    <tr class="{% if task.data.status.close_task %}success{% endif %}">
+        <td>{{task.data.id}}</td>
+        <td>
+            <b>{{task.data.title}}</b><br>
+            {% if task.data.task_num and task.data.task_num  != '' %}<b>Сл. зап. №</b> {{task.data.task_num}}
+            <b>от</b> {{task.data.task_date|date:"d.m.y"}}
+            <br>{%endif%}
+            
+            {{task.data.desc|truncatechars:120}}<br>
+            Начало: {{task.data.date_start|date:"d.m.y"}}<br>
+            Завершение: {{task.data.date_end|date:"d.m.y"}}<br>
+            <div class="no-print">
+            {% for name, url in task.files.items %}<a href="/to/media/{{url}}" title="{{name}}"  target="_blank"><i class="icon-attach"></i></a>{%endfor%}<br>
+            </div>
+            <div class="btn-group no-print">
+                <a class="btn btn-default" href="/to/task/{{task.data.id}}"><i class="icon-eye-open"></i></a>
+                {% if user.id == task.data.owner.id  or user.admin %}
+                <a class="btn btn-default" href="/to/edittask?id={{task.data.id}}"><i class="icon-pencil"></i></a>
+                <a class="btn btn-danger" href="#delModal{{task.data.id}}" role="button"  data-toggle="modal"><i class="icon-remove icon-white"></i></a>
+                {% endif %}
+                {% if user.cehuch == task.data.cehuch or user.id == task.data.owner.id  or user.admin %}
+                {% if not task.data.status.close_task %}
+                    <a class="btn btn-default" href="/to/task?id={{task.data.id}}&status=close"><i class="icon-check"></i></a>
+                    <a class="btn btn-default" href="/to/task?id={{task.data.id}}&status=deny"><i class="icon-ban-circle"></i></a>
+                {% else %}
+                    <a class="btn btn-default"  href="/to/task?id={{task.data.id}}&status=reopen"><i class="icon-repeat"></i></a>
+                {% endif %}
+                {% endif %}
+            </div>        
+            <div class="modal hide fade" id="delModal{{task.data.id}}">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4>Удалить задачу</h4>
+                      </div>
+                      <div class="modal-body"> 
+                        <p>Удалить задачу № {{task.data.id}} "{{task.data.title}}" ?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <a href="#" class="btn" data-dismiss="modal">Отмена</a>
+                        <a href="/to/deltask?id={{task.data.id}}" class="btn btn-danger">Удалить</a>
+                      </div>
+            </div>
+        </td>
+        <td class="nopadding">
+            <table class="table table-noborder">
+            <thead><tr>
+            {% for ceh in task.subtasks %}
+                <th class="{% if not forloop.first %}lborder {%endif%}">
+                    <div class="text-center ceh">
+                        {{cehname|item:ceh}}
+                    </div>
+                </th>
+            {% endfor %}         
+            </tr></thead>
+            <tbody>
+            <tr>
+            {% for ceh, subtasks in task.subtasks.items %}
+                <td  class="nopadding" id="subtask{{ subtask.id }}">
+                    <table class="table table-noborder">
+                    <tr>
+                        <td rowspan=2>
+                        <ul class="unstyled">
+                        {% for subtask in subtasks|item:ceh %}
+                            {% include "task_item.html" with task=subtask user=user %}
+                        {% endfor %}
+                        </ul>       
+                        </td>                    
+                        </td>                    
+                        {% for uch in subtasks %}
+                            {% if uch != ceh %}
+                                <th><div class="text-center ceh">{{cehname|item:uch}}</div></th>
+                            {% endif %}         
+                        {% endfor %}         
+                    </tr>   
+                    <tr>
+                    {% for uch, subtask in subtasks.items %}
+                        {% if uch != ceh %}
+                        <td>
+                        <ul class="unstyled"> 
+                        {% for cehtask in subtask %}
+                            {% include "task_item.html" with task=cehtask user=user %}
+                        {% endfor %}
+                        </ul>       
+                        </td>                        
+                        {% endif %}         
+                    {% endfor %}         
+                    </tr>
+                    </table>
+                </td>
+            {% endfor %}         
+            </tr>
+            </tbody>
+            </table>              
+        </td>
+    </tr>
+    {% endfor %}              
+    </tbody>
+</table>
+{% paginator ptasks "page" "" %}
+</div>
+{% endblock %}

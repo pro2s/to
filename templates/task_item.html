@@ -1,0 +1,39 @@
+<li class="task" id="task{{ task.id }}">
+    <div class="btn-group no-print">
+    <a class="btn dropdown-toggle
+    {% if task.status.close_task %} 
+        {% if task.status.name == 'deny' %} btn-danger {%else%} btn-success {% endif %}
+    {% else%} 
+        
+        {% if user.cehuch == task.cehuch %} btn-info {% else%} 
+            {% if task.status.name == 'geted' %} btn-warning {%else%} btn-default {% endif %}
+        {% endif %}
+    {%endif%}"
+    " data-toggle="dropdown" href="#"><i class="icon-wrench"></i> <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+        <li><a href="/to/task/{{task.id}}"><i class="icon-eye-open"></i> Просмотр</a></li>
+        {% if task.cehuch|accessCeh:user.cehuch  or user.id == task.doer.id or user.id == task.owner.id or user.admin %}
+        {% if not task.status.close_task %}
+        {% if task.status.name != 'geted' %} 
+            <li><a href="/to/task?id={{task.id}}&status=geted#subtask{{ task.id }}"><i class="icon-download"></i> Принято</a></li>
+        {% endif %}                                            
+        <li><a href="/to/task?id={{task.id}}&status=close#task{{ task.id }}"><i class="icon-check"></i> Выполненно</a></li>
+        <li><a href="/to/task?id={{task.id}}&status=deny#task{{ task.id }}"><i class="icon-ban-circle"></i> Отказать</a></li>
+        {% else %}
+        <li><a href="/to/task?id={{task.id}}&status=reopen#task{{ task.id }}"><i class="icon-repeat"></i> Переоткрыть</a></li>
+        {% endif %}                                    
+        {% endif %}
+    </ul>
+    </div>
+    <p>
+    <span class="only-print">
+        {% if task.status.close_task %} 
+            {% if task.status.name == 'deny' %} <i class="icon-ban-circle"></i> {%else%} <i class="icon-ok"></i> {% endif %}
+        {% else%} 
+            {% if task.cehuch|accessCeh:user.cehuch %} <i class="icon-user"></i>{% else%} 
+                {% if task.status.name == 'geted' %} <i class="icon-eye-open"></i> {%else%} {% endif %}
+            {% endif %}
+        {%endif%}
+    </span>
+    {{task.title}}</p>
+</li>

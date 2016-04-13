@@ -1,0 +1,1651 @@
+@media print
+{
+    .only-print, .only-print *
+    {
+        display: inline-block !important;
+    }
+    
+    .container {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    
+    .task {
+        padding: 2px 0px;
+        border-bottom: 1px dotted #000 !important;
+    }
+    
+    .task p {
+        margin-left: 0px !important;
+    }
+
+	.table thead {
+		border-color: black !important;
+	}
+
+	.table th, td {
+		border-color: black !important;
+	}
+    
+    .lborder {
+        border-left: 1px solid #000!important;
+    }
+
+    .rborder {
+        border-right: 1px solid #000 !important;
+    }
+
+    .nopadding {
+        padding: 0 !important; 
+    }
+
+    .nopadding table {
+        margin: 0 !important; 
+        border: none !important; 
+    }
+
+    .nopadding td{
+        padding: 2px 2px !important; 
+    }
+
+	.super
+	{
+        line-height: 0.7;   
+	}
+    
+	.table {
+		border-collapse: collapse;
+        border: 1px solid #000;
+	}
+
+	
+
+	body
+	{
+	font-size: 8pt; 
+	}
+	.no-print, .no-print *
+	{
+		display: none !important;
+	}
+  .span1,
+  .span2,
+  .span3,
+  .span4,
+  .span5,
+  .span6,
+  .span7,
+  .span8,
+  .span9,
+  .span10,
+  .span11,
+  .span12 {
+    float: left;
+  }
+  .span12 {
+    width: 100%;
+  }
+  .span11 {
+    width: 91.66666666666666%;
+  }
+  .span10 {
+    width: 83.33333333333334%;
+  }
+  .span9 {
+    width: 75%;
+  }
+  .span8 {
+    width: 66.66666666666666%;
+  }
+  .span7 {
+    width: 58.333333333333336%;
+  }
+  .span6 {
+    width: 50%;
+  }
+  .span5 {
+    width: 41.66666666666667%;
+  }
+  .span4 {
+    width: 33.33333333333333%;
+  }
+  .span3 {
+    width: 25%;
+  }
+  .span2 {
+    width: 16.666666666666664%;
+  }
+  .span1 {
+    width: 8.333333333333332%;
+  }
+  .spanpull-12 {
+    right: 100%;
+  }
+  .spanpull-11 {
+    right: 91.66666666666666%;
+  }
+  .spanpull-10 {
+    right: 83.33333333333334%;
+  }
+  .spanpull-9 {
+    right: 75%;
+  }
+  .spanpull-8 {
+    right: 66.66666666666666%;
+  }
+  .spanpull-7 {
+    right: 58.333333333333336%;
+  }
+  .spanpull-6 {
+    right: 50%;
+  }
+  .spanpull-5 {
+    right: 41.66666666666667%;
+  }
+  .spanpull-4 {
+    right: 33.33333333333333%;
+  }
+  .spanpull-3 {
+    right: 25%;
+  }
+  .spanpull-2 {
+    right: 16.666666666666664%;
+  }
+  .spanpull-1 {
+    right: 8.333333333333332%;
+  }
+  .spanpull-0 {
+    right: 0;
+  }
+  .spanpush-12 {
+    left: 100%;
+  }
+  .spanpush-11 {
+    left: 91.66666666666666%;
+  }
+  .spanpush-10 {
+    left: 83.33333333333334%;
+  }
+  .spanpush-9 {
+    left: 75%;
+  }
+  .spanpush-8 {
+    left: 66.66666666666666%;
+  }
+  .spanpush-7 {
+    left: 58.333333333333336%;
+  }
+  .spanpush-6 {
+    left: 50%;
+  }
+  .spanpush-5 {
+    left: 41.66666666666667%;
+  }
+  .spanpush-4 {
+    left: 33.33333333333333%;
+  }
+  .spanpush-3 {
+    left: 25%;
+  }
+  .spanpush-2 {
+    left: 16.666666666666664%;
+  }
+  .spanpush-1 {
+    left: 8.333333333333332%;
+  }
+  .spanpush-0 {
+    left: 0;
+  }
+  .offset12 {
+    margin-left: 100%;
+  }
+  .offset11 {
+    margin-left: 91.66666666666666%;
+  }
+  .offset10 {
+    margin-left: 83.33333333333334%;
+  }
+  .offset9 {
+    margin-left: 75%;
+  }
+  .offset8 {
+    margin-left: 66.66666666666666%;
+  }
+  .offset7 {
+    margin-left: 58.333333333333336%;
+  }
+  .offset6 {
+    margin-left: 50%;
+  }
+  .offset5 {
+    margin-left: 41.66666666666667%;
+  }
+  .offset4 {
+    margin-left: 33.33333333333333%;
+  }
+  .offset3 {
+    margin-left: 25%;
+  }
+  .offset2 {
+    margin-left: 16.666666666666664%;
+  }
+  .offset1 {
+    margin-left: 8.333333333333332%;
+  }
+  .offset0 {
+    margin-left: 0;
+  }
+  .underline
+	{
+		border-bottom: 1px solid #000;
+	}
+
+    i[class^="icon-"], i[class*=" icon-"] {
+    display: inline-block;
+    vertical-align: text-top;
+    width: 14px;
+    background-image:none!important;
+    background-repeat:no-repeat;
+    background-position: 0 0!important;
+    }
+
+    i.icon-glass::after{
+    clip: rect( 0px 14px 14px 0px)!important;
+    margin-top: 0px!important;
+    margin-left: 0px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-music::after{
+    clip: rect( 0px 38px 14px 24px)!important;
+    margin-top: 0px!important;
+    margin-left: -24px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-search::after{
+    clip: rect( 0px 62px 14px 48px)!important;
+    margin-top: 0px!important;
+    margin-left: -48px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-envelope::after{
+    clip: rect( 0px 86px 14px 72px)!important;
+    margin-top: 0px!important;
+    margin-left: -72px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-heart::after{
+    clip: rect( 0px 110px 14px 96px)!important;
+    margin-top: 0px!important;
+    margin-left: -96px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-star::after{
+    clip: rect( 0px 134px 14px 120px)!important;
+    margin-top: 0px!important;
+    margin-left: -120px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-star-empty::after{
+    clip: rect( 0px 158px 14px 144px)!important;
+    margin-top: 0px!important;
+    margin-left: -144px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-user::after{
+    clip: rect( 0px 182px 14px 168px)!important;
+    margin-top: 0px!important;
+    margin-left: -168px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-film::after{
+    clip: rect( 0px 206px 14px 192px)!important;
+    margin-top: 0px!important;
+    margin-left: -192px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-th-large::after{
+    clip: rect( 0px 230px 14px 216px)!important;
+    margin-top: 0px!important;
+    margin-left: -216px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-th::after{
+    clip: rect( 0px 254px 14px 240px)!important;
+    margin-top: 0px!important;
+    margin-left: -240px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-th-list::after{
+    clip: rect( 0px 278px 14px 264px)!important;
+    margin-top: 0px!important;
+    margin-left: -264px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-ok::after{
+    clip: rect( 0px 302px 14px 288px)!important;
+    margin-top: 0px!important;
+    margin-left: -288px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-remove::after{
+    clip: rect( 0px 326px 14px 312px)!important;
+    margin-top: 0px!important;
+    margin-left: -312px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-zoom-in::after{
+    clip: rect( 0px 350px 14px 336px)!important;
+    margin-top: 0px!important;
+    margin-left: -336px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-zoom-out::after{
+    clip: rect( 0px 374px 14px 360px)!important;
+    margin-top: 0px!important;
+    margin-left: -360px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-off::after{
+    clip: rect( 0px 398px 14px 384px)!important;
+    margin-top: 0px!important;
+    margin-left: -384px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-signal::after{
+    clip: rect( 0px 422px 14px 408px)!important;
+    margin-top: 0px!important;
+    margin-left: -408px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-cog::after{
+    clip: rect( 0px 446px 14px 432px)!important;
+    margin-top: 0px!important;
+    margin-left: -432px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-trash::after{
+    clip: rect( 0px 470px 14px 456px)!important;
+    margin-top: 0px!important;
+    margin-left: -456px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-home::after{
+    clip: rect( 24px 14px 38px 0px)!important;
+    margin-top: -24px!important;
+    margin-left: 0px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-file::after{
+    clip: rect( 24px 38px 38px 24px)!important;
+    margin-top: -24px!important;
+    margin-left: -24px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-time::after{
+    clip: rect( 24px 62px 38px 48px)!important;
+    margin-top: -24px!important;
+    margin-left: -48px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-road::after{
+    clip: rect( 24px 86px 38px 72px)!important;
+    margin-top: -24px!important;
+    margin-left: -72px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-download-alt::after{
+    clip: rect( 24px 110px 38px 96px)!important;
+    margin-top: -24px!important;
+    margin-left: -96px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-download::after{
+    clip: rect( 24px 134px 38px 120px)!important;
+    margin-top: -24px!important;
+    margin-left: -120px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-upload::after{
+    clip: rect( 24px 158px 38px 144px)!important;
+    margin-top: -24px!important;
+    margin-left: -144px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-inbox::after{
+    clip: rect( 24px 182px 38px 168px)!important;
+    margin-top: -24px!important;
+    margin-left: -168px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-play-circle::after{
+    clip: rect( 24px 206px 38px 192px)!important;
+    margin-top: -24px!important;
+    margin-left: -192px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-repeat::after{
+    clip: rect( 24px 230px 38px 216px)!important;
+    margin-top: -24px!important;
+    margin-left: -216px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-refresh::after{
+    clip: rect( 24px 254px 38px 240px)!important;
+    margin-top: -24px!important;
+    margin-left: -240px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-list-alt::after{
+    clip: rect( 24px 278px 38px 264px)!important;
+    margin-top: -24px!important;
+    margin-left: -264px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-lock::after{
+    clip: rect( 24px 301px 38px 287px)!important;
+    margin-top: -24px!important;
+    margin-left: -287px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-flag::after{
+    clip: rect( 24px 326px 38px 312px)!important;
+    margin-top: -24px!important;
+    margin-left: -312px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-headphones::after{
+    clip: rect( 24px 350px 38px 336px)!important;
+    margin-top: -24px!important;
+    margin-left: -336px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-volume-off::after{
+    clip: rect( 24px 374px 38px 360px)!important;
+    margin-top: -24px!important;
+    margin-left: -360px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-volume-down::after{
+    clip: rect( 24px 398px 38px 384px)!important;
+    margin-top: -24px!important;
+    margin-left: -384px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-volume-up::after{
+    clip: rect( 24px 422px 38px 408px)!important;
+    margin-top: -24px!important;
+    margin-left: -408px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-qrcode::after{
+    clip: rect( 24px 446px 38px 432px)!important;
+    margin-top: -24px!important;
+    margin-left: -432px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-barcode::after{
+    clip: rect( 24px 470px 38px 456px)!important;
+    margin-top: -24px!important;
+    margin-left: -456px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-tag::after{
+    clip: rect( 48px 14px 62px 0px)!important;
+    margin-top: -48px!important;
+    margin-left: 0px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-tags::after{
+    clip: rect( 48px 39px 62px 25px)!important;
+    margin-top: -48px!important;
+    margin-left: -25px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-book::after{
+    clip: rect( 48px 62px 62px 48px)!important;
+    margin-top: -48px!important;
+    margin-left: -48px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-bookmark::after{
+    clip: rect( 48px 86px 62px 72px)!important;
+    margin-top: -48px!important;
+    margin-left: -72px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-print::after{
+    clip: rect( 48px 110px 62px 96px)!important;
+    margin-top: -48px!important;
+    margin-left: -96px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-camera::after{
+    clip: rect( 48px 134px 62px 120px)!important;
+    margin-top: -48px!important;
+    margin-left: -120px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-font::after{
+    clip: rect( 48px 158px 62px 144px)!important;
+    margin-top: -48px!important;
+    margin-left: -144px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-bold::after{
+    clip: rect( 48px 181px 62px 167px)!important;
+    margin-top: -48px!important;
+    margin-left: -167px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-italic::after{
+    clip: rect( 48px 206px 62px 192px)!important;
+    margin-top: -48px!important;
+    margin-left: -192px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-text-height::after{
+    clip: rect( 48px 230px 62px 216px)!important;
+    margin-top: -48px!important;
+    margin-left: -216px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-text-width::after{
+    clip: rect( 48px 254px 62px 240px)!important;
+    margin-top: -48px!important;
+    margin-left: -240px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-align-left::after{
+    clip: rect( 48px 278px 62px 264px)!important;
+    margin-top: -48px!important;
+    margin-left: -264px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-align-center::after{
+    clip: rect( 48px 302px 62px 288px)!important;
+    margin-top: -48px!important;
+    margin-left: -288px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-align-right::after{
+    clip: rect( 48px 326px 62px 312px)!important;
+    margin-top: -48px!important;
+    margin-left: -312px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-align-justify::after{
+    clip: rect( 48px 350px 62px 336px)!important;
+    margin-top: -48px!important;
+    margin-left: -336px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-list::after{
+    clip: rect( 48px 374px 62px 360px)!important;
+    margin-top: -48px!important;
+    margin-left: -360px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-indent-left::after{
+    clip: rect( 48px 398px 62px 384px)!important;
+    margin-top: -48px!important;
+    margin-left: -384px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-indent-right::after{
+    clip: rect( 48px 422px 62px 408px)!important;
+    margin-top: -48px!important;
+    margin-left: -408px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-facetime-video::after{
+    clip: rect( 48px 446px 62px 432px)!important;
+    margin-top: -48px!important;
+    margin-left: -432px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-picture::after{
+    clip: rect( 48px 470px 62px 456px)!important;
+    margin-top: -48px!important;
+    margin-left: -456px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-pencil::after{
+    clip: rect( 72px 14px 86px 0px)!important;
+    margin-top: -72px!important;
+    margin-left: 0px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-map-marker::after{
+    clip: rect( 72px 38px 86px 24px)!important;
+    margin-top: -72px!important;
+    margin-left: -24px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-adjust::after{
+    clip: rect( 72px 62px 86px 48px)!important;
+    margin-top: -72px!important;
+    margin-left: -48px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-tint::after{
+    clip: rect( 72px 86px 86px 72px)!important;
+    margin-top: -72px!important;
+    margin-left: -72px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-edit::after{
+    clip: rect( 72px 110px 86px 96px)!important;
+    margin-top: -72px!important;
+    margin-left: -96px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-share::after{
+    clip: rect( 72px 134px 86px 120px)!important;
+    margin-top: -72px!important;
+    margin-left: -120px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-check::after{
+    clip: rect( 72px 158px 86px 144px)!important;
+    margin-top: -72px!important;
+    margin-left: -144px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-move::after{
+    clip: rect( 72px 182px 86px 168px)!important;
+    margin-top: -72px!important;
+    margin-left: -168px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-step-backward::after{
+    clip: rect( 72px 206px 86px 192px)!important;
+    margin-top: -72px!important;
+    margin-left: -192px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-fast-backward::after{
+    clip: rect( 72px 230px 86px 216px)!important;
+    margin-top: -72px!important;
+    margin-left: -216px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-backward::after{
+    clip: rect( 72px 254px 86px 240px)!important;
+    margin-top: -72px!important;
+    margin-left: -240px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-play::after{
+    clip: rect( 72px 278px 86px 264px)!important;
+    margin-top: -72px!important;
+    margin-left: -264px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-pause::after{
+    clip: rect( 72px 302px 86px 288px)!important;
+    margin-top: -72px!important;
+    margin-left: -288px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-stop::after{
+    clip: rect( 72px 326px 86px 312px)!important;
+    margin-top: -72px!important;
+    margin-left: -312px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-forward::after{
+    clip: rect( 72px 350px 86px 336px)!important;
+    margin-top: -72px!important;
+    margin-left: -336px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-fast-forward::after{
+    clip: rect( 72px 374px 86px 360px)!important;
+    margin-top: -72px!important;
+    margin-left: -360px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-step-forward::after{
+    clip: rect( 72px 398px 86px 384px)!important;
+    margin-top: -72px!important;
+    margin-left: -384px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-eject::after{
+    clip: rect( 72px 422px 86px 408px)!important;
+    margin-top: -72px!important;
+    margin-left: -408px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-chevron-left::after{
+    clip: rect( 72px 446px 86px 432px)!important;
+    margin-top: -72px!important;
+    margin-left: -432px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-chevron-right::after{
+    clip: rect( 72px 470px 86px 456px)!important;
+    margin-top: -72px!important;
+    margin-left: -456px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-plus-sign::after{
+    clip: rect( 96px 14px 110px 0px)!important;
+    margin-top: -96px!important;
+    margin-left: 0px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-minus-sign::after{
+    clip: rect( 96px 38px 110px 24px)!important;
+    margin-top: -96px!important;
+    margin-left: -24px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-remove-sign::after{
+    clip: rect( 96px 62px 110px 48px)!important;
+    margin-top: -96px!important;
+    margin-left: -48px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-ok-sign::after{
+    clip: rect( 96px 86px 110px 72px)!important;
+    margin-top: -96px!important;
+    margin-left: -72px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-question-sign::after{
+    clip: rect( 96px 110px 110px 96px)!important;
+    margin-top: -96px!important;
+    margin-left: -96px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-info-sign::after{
+    clip: rect( 96px 134px 110px 120px)!important;
+    margin-top: -96px!important;
+    margin-left: -120px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-screenshot::after{
+    clip: rect( 96px 158px 110px 144px)!important;
+    margin-top: -96px!important;
+    margin-left: -144px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-remove-circle::after{
+    clip: rect( 96px 182px 110px 168px)!important;
+    margin-top: -96px!important;
+    margin-left: -168px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-ok-circle::after{
+    clip: rect( 96px 206px 110px 192px)!important;
+    margin-top: -96px!important;
+    margin-left: -192px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-ban-circle::after{
+    clip: rect( 96px 230px 110px 216px)!important;
+    margin-top: -96px!important;
+    margin-left: -216px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-arrow-left::after{
+    clip: rect( 96px 254px 110px 240px)!important;
+    margin-top: -96px!important;
+    margin-left: -240px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-arrow-right::after{
+    clip: rect( 96px 278px 110px 264px)!important;
+    margin-top: -96px!important;
+    margin-left: -264px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-arrow-up::after{
+    clip: rect( 96px 303px 110px 289px)!important;
+    margin-top: -96px!important;
+    margin-left: -289px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-arrow-down::after{
+    clip: rect( 96px 326px 110px 312px)!important;
+    margin-top: -96px!important;
+    margin-left: -312px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-share-alt::after{
+    clip: rect( 96px 350px 110px 336px)!important;
+    margin-top: -96px!important;
+    margin-left: -336px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-resize-full::after{
+    clip: rect( 96px 374px 110px 360px)!important;
+    margin-top: -96px!important;
+    margin-left: -360px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-resize-small::after{
+    clip: rect( 96px 398px 110px 384px)!important;
+    margin-top: -96px!important;
+    margin-left: -384px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-plus::after{
+    clip: rect( 96px 422px 110px 408px)!important;
+    margin-top: -96px!important;
+    margin-left: -408px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-minus::after{
+    clip: rect( 96px 447px 110px 433px)!important;
+    margin-top: -96px!important;
+    margin-left: -433px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-asterisk::after{
+    clip: rect( 96px 470px 110px 456px)!important;
+    margin-top: -96px!important;
+    margin-left: -456px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-exclamation-sign::after{
+    clip: rect( 120px 14px 134px 0px)!important;
+    margin-top: -120px!important;
+    margin-left: 0px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-gift::after{
+    clip: rect( 120px 38px 134px 24px)!important;
+    margin-top: -120px!important;
+    margin-left: -24px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-leaf::after{
+    clip: rect( 120px 62px 134px 48px)!important;
+    margin-top: -120px!important;
+    margin-left: -48px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-fire::after{
+    clip: rect( 120px 86px 134px 72px)!important;
+    margin-top: -120px!important;
+    margin-left: -72px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-eye-open::after{
+    clip: rect( 120px 110px 134px 96px)!important;
+    margin-top: -120px!important;
+    margin-left: -96px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-eye-close::after{
+    clip: rect( 120px 134px 134px 120px)!important;
+    margin-top: -120px!important;
+    margin-left: -120px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-warning-sign::after{
+    clip: rect( 120px 158px 134px 144px)!important;
+    margin-top: -120px!important;
+    margin-left: -144px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-plane::after{
+    clip: rect( 120px 182px 134px 168px)!important;
+    margin-top: -120px!important;
+    margin-left: -168px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-calendar::after{
+    clip: rect( 120px 206px 134px 192px)!important;
+    margin-top: -120px!important;
+    margin-left: -192px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-random::after{
+    clip: rect( 120px 230px 134px 216px)!important;
+    margin-top: -120px!important;
+    margin-left: -216px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-comment::after{
+    clip: rect( 120px 254px 134px 240px)!important;
+    margin-top: -120px!important;
+    margin-left: -240px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-magnet::after{
+    clip: rect( 120px 278px 134px 264px)!important;
+    margin-top: -120px!important;
+    margin-left: -264px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-chevron-up::after{
+    clip: rect( 120px 302px 134px 288px)!important;
+    margin-top: -120px!important;
+    margin-left: -288px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-chevron-down::after{
+    clip: rect( 119px 327px 133px 313px)!important;
+    margin-top: -119px!important;
+    margin-left: -313px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-retweet::after{
+    clip: rect( 120px 350px 134px 336px)!important;
+    margin-top: -120px!important;
+    margin-left: -336px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-shopping-cart::after{
+    clip: rect( 120px 374px 134px 360px)!important;
+    margin-top: -120px!important;
+    margin-left: -360px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-folder-close::after{
+    clip: rect( 120px 398px 134px 384px)!important;
+    margin-top: -120px!important;
+    margin-left: -384px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-folder-open::after{
+    clip: rect( 120px 422px 134px 408px)!important;
+    margin-top: -120px!important;
+    margin-left: -408px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-resize-vertical::after{
+    clip: rect( 119px 446px 133px 432px)!important;
+    margin-top: -119px!important;
+    margin-left: -432px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-resize-horizontal::after{
+    clip: rect( 118px 470px 132px 456px)!important;
+    margin-top: -118px!important;
+    margin-left: -456px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-hdd::after{
+    clip: rect( 144px 14px 158px 0px)!important;
+    margin-top: -144px!important;
+    margin-left: 0px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-bullhorn::after{
+    clip: rect( 144px 38px 158px 24px)!important;
+    margin-top: -144px!important;
+    margin-left: -24px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-bell::after{
+    clip: rect( 144px 62px 158px 48px)!important;
+    margin-top: -144px!important;
+    margin-left: -48px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-certificate::after{
+    clip: rect( 144px 86px 158px 72px)!important;
+    margin-top: -144px!important;
+    margin-left: -72px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-thumbs-up::after{
+    clip: rect( 144px 110px 158px 96px)!important;
+    margin-top: -144px!important;
+    margin-left: -96px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-thumbs-down::after{
+    clip: rect( 144px 134px 158px 120px)!important;
+    margin-top: -144px!important;
+    margin-left: -120px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-hand-right::after{
+    clip: rect( 144px 158px 158px 144px)!important;
+    margin-top: -144px!important;
+    margin-left: -144px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-hand-left::after{
+    clip: rect( 144px 182px 158px 168px)!important;
+    margin-top: -144px!important;
+    margin-left: -168px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-hand-up::after{
+    clip: rect( 144px 206px 158px 192px)!important;
+    margin-top: -144px!important;
+    margin-left: -192px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-hand-down::after{
+    clip: rect( 144px 230px 158px 216px)!important;
+    margin-top: -144px!important;
+    margin-left: -216px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-circle-arrow-right::after{
+    clip: rect( 144px 254px 158px 240px)!important;
+    margin-top: -144px!important;
+    margin-left: -240px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-circle-arrow-left::after{
+    clip: rect( 144px 278px 158px 264px)!important;
+    margin-top: -144px!important;
+    margin-left: -264px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-circle-arrow-up::after{
+    clip: rect( 144px 302px 158px 288px)!important;
+    margin-top: -144px!important;
+    margin-left: -288px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-circle-arrow-down::after{
+    clip: rect( 144px 326px 158px 312px)!important;
+    margin-top: -144px!important;
+    margin-left: -312px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-globe::after{
+    clip: rect( 144px 350px 158px 336px)!important;
+    margin-top: -144px!important;
+    margin-left: -336px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-wrench::after{
+    clip: rect( 144px 374px 158px 360px)!important;
+    margin-top: -144px!important;
+    margin-left: -360px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-tasks::after{
+    clip: rect( 144px 398px 158px 384px)!important;
+    margin-top: -144px!important;
+    margin-left: -384px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-filter::after{
+    clip: rect( 144px 422px 158px 408px)!important;
+    margin-top: -144px!important;
+    margin-left: -408px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-briefcase::after{
+    clip: rect( 144px 446px 158px 432px)!important;
+    margin-top: -144px!important;
+    margin-left: -432px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+
+    i.icon-fullscreen::after{
+    clip: rect( 144px 470px 158px 456px)!important;
+    margin-top: -144px!important;
+    margin-left: -456px!important;
+    content: url('../img/glyphicons-halflings.png')!important;
+    position:absolute!important;
+    width:auto!important;
+    height:auto!important;
+    }
+}

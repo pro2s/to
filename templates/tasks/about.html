@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block title %}{{title}}{% endblock %}
+{% block about %}class="active"{% endblock %}
+{% block auth %}{% endblock %}
+{% block content %}
+<div class="span8 offset2">
+<h3>Система учета служебных записок</h3>
+<p>Система служит для оперативного учета выполнения служебных занписок.</p>
+<h4>Ошибки</h4>
+<p>В случае получения сообщения об ошике или неправилной работы системы звонить <strong>2-64</strong> - Протасов Серегей Сергеевич</p>
+<h4>Исправления и новые функции</h4>
+{% for key, values in changes.items %}
+    <h5>{{ key }}</h5>
+    <ul>
+    {% for change in values %}
+        <li>{{ change }}</li>
+    {% endfor %}
+    </ul>
+{% endfor %}
+</div>
+{% endblock %}

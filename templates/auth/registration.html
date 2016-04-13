@@ -1,0 +1,103 @@
+{% extends "index.html" %}
+
+{% block title %}{{title}}{% endblock %}
+{% block registration %}class="active"{% endblock %}
+{% block content %}
+<div class="span3">
+&nbsp;
+</div>
+<div class="span6">
+    {% if user.cehuch == 0 and user.auth %}
+    <h3>Регистрация</h3>
+    <form class="form-horizontal" method="post" action="/to/doregistration">
+      {% csrf_token %}
+      <div class="control-group">
+        <label class="control-label" for="inputTn">Табельный №</label>
+        <div class="controls">
+          <input type="text" id="inputTn" placeholder="0000" name="tn">
+          <span class="help-inline">При заполнение табельного №, остальные данные будут взяты из базы данных.</span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="inputUsername">Ф.И.О.</label>
+        <div class="controls">
+          <input type="text" id="inputUsername" placeholder="Ф.И.О." name="username">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="inputCeh">Отдел/Цех:</label>
+        <div class="controls">
+        <select id="selectCeh" name="ceh">
+          {% for ceh in cehs %}
+          <option value="{{ceh.ceh}}">({{ceh.ceh}}) {{ceh.name}}</option>
+          {% endfor %}
+        </select>
+        </div>
+      </div>
+      <div class="control-group" id="groupUch">
+        <label class="control-label" for="inputUch">Бюро/Участок:</label>
+        <div class="controls">
+        <select id="selectUch" name="cehuch">
+        <option value="0">Выбрать бюро/участок</option>
+          {% for uch in uchs %}
+          <option value="{{uch.cehuch}}">({{uch.cehuch}}) {{uch.name}}</option>
+          {% endfor %}
+        </select>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="controls">
+          <button type="submit" class="btn">Зарегистрироваться</button>
+        </div>
+      </div>
+    </form>
+    {% else %}
+    {% if user.cehuch < 0 and user.auth %}
+        <center><h3>Ожидайте подтверждения регистрации, для ускорения сообщите о регистрации по телефону 2-64</h3></center>
+    {% else %}
+    <form action="/to/login" method="post"> 
+            {% csrf_token %}
+             <h3 >Войти</h3>
+             <label>Пользователь (как при входе в Windows)</label>
+             <input type="text" name="username" value="">
+             <label>Пароль (как при входе в Windows)</label>
+             <input type="password" name="password" value=""></br>
+             <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
+
+    {%endif%}
+    {%endif%}
+</div>
+<div class="span3">
+&nbsp;
+</div>
+<script type="text/javascript">
+function checkCeh() {
+    var filter = $('#selectCeh').val();
+    var first = 0
+    $('#selectUch').find('option').each(function(){
+        if ($(this).val() / 100 >> 0 == filter) {
+            $(this).show();
+            if (first == 0) {
+                first = $(this).val();
+            }
+        } else {
+            $(this).hide();
+        }
+    })
+    if (first!=0) {
+        $('#groupUch').show();
+        $('#selectUch').val(0);
+    } else {
+        $('#groupUch').hide();
+    }
+}
+$(document).ready(function(){
+    checkCeh();
+    $('#selectCeh').change(function(){
+        checkCeh();
+    })
+})
+</script>
+{% endblock %}

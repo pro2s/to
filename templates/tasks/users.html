@@ -1,0 +1,49 @@
+{% extends "index.html" %}
+
+{% block title %}{{title}}{% endblock %}
+{% block users %}class="active"{% endblock %}
+{% block content %}
+<div class="span8">
+
+<table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Таб. №</th>
+                  <th>Имя</th>
+                  <th>Логин</th>
+                  <th># Цех.Уч.</th>
+                  <th>Цех/Участок</th>
+                  <th>Роль</th>
+                  <th class="no-print"><i class="icon-wrench"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for u in users %}
+                <tr {% if user.cehuch < 0 %}class="error"{% endif %}>
+                    <td>{{u.id}}</td>
+                    <td>{{u.tn|none:'-'}}</td>
+                    <td>{{u.name}}</td>
+                    <td>{{u.login}}</td>
+                    <td>{{u.cehuch}}</td>
+                    <td>{{u.dev.ceh_name}}</td>
+                    <td>{% for role in u.roles.all %}<span>{{role.view_name}}</span>{% endfor %}</td>
+                    <td class="no-print">
+                    
+                        <div class="btn-group">
+                            {% if user.admin %}
+                                   {% if u.cehuch < 0 %}
+                                            <a class="btn btn-default" style="padding: 2px 7px;" href="reguser?id={{u.id}}"><i class="icon-ok-sign"></i></a>     
+                                   {% endif %}            
+                                    <a class="btn btn-danger" style="padding: 2px 7px;" href="del?id={{u.id}}"><i class="icon-remove icon-white"></i></a>     
+                            {% endif %}            
+                        </div>
+                    </td>
+                        
+                </tr>
+                {% endfor %}
+              </tbody>
+</table>
+
+</div>
+{% endblock %}

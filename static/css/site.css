@@ -1,0 +1,64 @@
+.ceh {
+    font-size: 80%;
+}
+
+.icon-attach {
+    background-image: url("../img/attach.png")  !important;
+    background-position: center center  !important;
+    height: 16px;
+    margin: 5px 5px;
+}
+
+.table-noborder td, .table-noborder th {
+    border-left: none;
+}
+
+.lborder {
+border-left: 1px solid #dddddd !important;
+}
+
+.rborder {
+border-right: 1px solid #dddddd !important;
+}
+
+.nopadding {
+    padding: 0 !important; 
+}
+
+.nopadding table {
+    margin: 0 !important; 
+}
+
+.nopadding td{
+    padding: 2px 2px !important; 
+}
+
+.task
+{
+padding: 2px 0px;
+border-bottom: 1px solid #dddddd;
+}
+.task .btn {
+padding: 3px 3px;
+}
+.task p {
+    margin-left: 40px;
+}
+
+.task .btn-group {
+    position:absolute;
+}
+
+.underline
+{
+    border-bottom: 1px solid #000;
+}
+.super
+{
+line-height: 0.7;
+}
+
+.only-print, .only-print *
+{
+    display: none;
+}

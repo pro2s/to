@@ -1,0 +1,183 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+{% block title %}{{title}}{% endblock %}
+{% block login %}{% endblock %}
+{% block content %}
+{% if mode == "new" or task.parrent %}
+<div class="span3">
+&nbsp;
+</div>
+{% endif %}
+<div class="span6">
+    <h4>{{title}}</h4>
+    <form class="form-horizontal" method="post" action="/to/savetask?mode={{mode}}" autocomplete="off" name="taskForm" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="hidden" name="id" value="{{task.id}}"> 
+      <input type="hidden" name="parrent" value="{{parrent}}"> 
+      <div class="control-group">
+        <label class="control-label" for="inputTitle">Заголовок</label>
+        <div class="controls">
+          <input type="text" id="inputTitle" placeholder="" name="title" value="{{task.title}}">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="inputDesc">Описание</label>
+        <div class="controls">
+          <textarea id="inputDesc" placeholder="" name="desc" data-provide="markdown" rows="10" data-hidden-buttons="cmdUrl">{{task.desc}}</textarea>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="selectUser">Назначить пользователю:</label>
+        <div class="controls">
+        <select id="selectUser" name="doer">
+        <option value="">Выбрать исполнителя</option>
+          {% for u in users %}
+          <option value="{{u.id}}" {% if u.id == task.doer_id %}selected="selected"{%endif%}>{{u.name}} ({{u.cehuch}}) </option>
+          {% endfor %}
+        </select>
+        </div>
+      </div>
+      {% if task.parrent == None %}
+      <div class="control-group">
+        <label class="control-label" for="inputTaskNum">Служебная записка</label>
+        <div class="controls">
+          <input type="text" id="inputTaskNum" placeholder="" name="task_num" value="{{task.task_num|none:''}}">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="inputTaskDate">Дата сл. записки</label>
+        <div class="controls">
+          <input type="text" id="inputStart" placeholder="2016-01-01" name="task_date" value="{{task.task_date|date:"Y-m-d"}}">
+        </div>
+      </div>
+      {% endif %}
+      <div class="control-group">
+        <label class="control-label" for="inputStart">Дата начала</label>
+        <div class="controls">
+          <input type="text" id="inputStart" placeholder="2016-01-01" name="date_start" value="{{task.date_start|date:"Y-m-d"}}">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="inputEnd">Дата завершения</label>
+        <div class="controls">
+          <input type="text" id="inputEnd" placeholder="2016-01-01" name="date_end" value="{{task.date_end|date:"Y-m-d"}}">
+        </div>
+      </div>
+
+
+      <div class="control-group">
+        <label class="control-label" for="inputCeh">Отдел/Цех:</label>
+        <div class="controls">
+        <select id="selectCeh" name="ceh" >
+          {% for ceh in cehs %}
+          <option value="{{ceh.ceh}}" {% if ceh.ceh == task.cehuch|ceh %}selected="selected"{%endif%} >({{ceh.ceh}}) {{ceh.name}}</option>
+          {% endfor %}
+        </select>
+        </div>
+      </div>
+      <div class="control-group" id="groupUch">
+        <label class="control-label" for="inputUch">Бюро/Участок:</label>
+        <div class="controls">
+        <select id="selectUch" name="cehuch" >
+        <option value="">Выбрать бюро/участок</option>
+          {% for uch in uchs %}
+          <option value="{{uch.cehuch}}" {% if uch.cehuch == task.cehuch %}selected="selected"{%endif%} >({{uch.cehuch}}) {{uch.name}}</option>
+          {% endfor %}
+        </select>
+        </div>
+      </div>
+      
+      {% if files %}
+      <div class="control-group">
+        <label class="control-label" for="inputfile">Файлы:</label>
+        <div class="controls">
+          {% for name, url in files.items %}
+           <a href="/to/media/{{url}}" target="_blank">{{name}}</a>&nbsp;<a href="/to/file?mode=delete&name={{name}}&id={{task.id}}">удалить</a><br> 
+          {% endfor%}
+        </div>
+      </div>
+      {% endif %}
+      <div class="control-group">
+        <label class="control-label" for="inputfile">Вложение:</label>
+        <div class="controls">
+          <input type="file" name="file" id="file" />
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <div class="controls">
+          <input type="submit" class="btn" value="Сохранить">
+          <a class="btn btn-default" href="{{return}}">Вернуться</a>
+        </div>
+      </div>
+    </form>
+   
+</div>
+{% if mode == "new" or task.parrent %}
+<div class="span3">
+&nbsp;
+</div>
+{% endif %}
+{% if mode == "edit" and not task.parrent %}
+<div class="span6">
+<h4>Подзадачи</h4>
+<a class="btn btn-default" href="/to/newtask?parrent={{task.id}}"><i class="icon-plus"></i>Новая подзадача</a></br>
+<table class="table">
+<thead>
+<tr><th>#</th><th>Заголовок</th><th>Цех.Уч.</th><th>Действия</th></tr>
+</thead>
+<tbody>
+{% for t in subtask %}
+<tr>
+    <td>{{t.id}}</td><td>{{t.title}}</td><td>({{t.cehuch}})</td>
+    <td>
+    <div class="btn-group">
+            <a class="btn btn-default" href="/to/edittask?id={{t.id}}"><i class="icon-pencil"></i> Изменить</a>
+            <a class="btn btn-danger" href="/to/deltask?id={{t.id}}" role="button"><i class="icon-remove icon-white"></i></a>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endif %}
+  <script src="{% static "js/markdown.js" %}"></script>
+  <script src="{% static "js/to-markdown.js" %}"></script>
+  <script src="{% static "js/bootstrap-markdown.js" %}"></script>
+  <script src="{% static "js/main.js" %}"></script>
+  
+<script type="text/javascript">
+function checkCeh(cehID, uchID, groupID) {
+    var filter = $(cehID).val();
+    var first = 0
+    $(uchID).find('option').each(function(){
+        if ($(this).val() == '' || $(this).val() / 100 >> 0 == filter) {
+            $(this).show();
+            if (first == 0) {
+                first = $(this).val();
+            }
+        } else {
+            $(this).hide();
+        }
+    })
+    if (first!=0) {
+        $(groupID).show();
+        $(uchID).val(0);
+    } else {
+        $(groupID).hide();
+    }
+}
+window.onload = function() { document.forms['taskForm'].reset(); };
+$(document).ready(function(){
+    checkCeh('#selectCeh', '#selectUch','#groupUch');
+    checkCeh('#subSelectCeh', '#subSelectUch','#subGroupUch');
+    $('#selectCeh').change(function(){
+        checkCeh('#selectCeh', '#selectUch','#groupUch');
+    });
+    $('#subSelectCeh').change(function(){
+        checkCeh('#subSelectCeh', '#subSelectUch','#subGroupUch');
+    })
+})
+</script>
+
+{% endblock %}
