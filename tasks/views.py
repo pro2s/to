@@ -22,7 +22,7 @@ from django.conf import settings
 import json
 import codecs
 
-FILE_UPLOAD_DIR = '/var/www/django/to/media'
+FILE_UPLOAD_DIR = settings.MEDIA_ROOT
 
 def getdate(s_date):
     """Проверка даты с разными форматами ввода"""
@@ -105,21 +105,6 @@ def handle_uploaded_file(task_id, source):
     dest =  FILE_UPLOAD_DIR + u'/%d__%s' % (task_id, source.name)
     path = default_storage.save(dest, ContentFile(source.read()))
     return path
-
-def about(request):
-    """О системе"""
-    changes = {}
-    path = settings.BASE_DIR + '/it/changes.json'
-    with codecs.open(path, "r", "utf-8") as data:    
-        changes = json.load(data)
-    
-    c = {
-    'title': 'О системе',
-    'changes': changes,
-    }
-    
-    return render(request, 'tasks/about.html', c)
-
 
 @check_login
 @csrf_protect

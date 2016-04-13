@@ -7,6 +7,9 @@ from django.http import HttpResponseRedirect, HttpResponse, HttpRequest
 from django.shortcuts import render, render_to_response, get_object_or_404, HttpResponseRedirect
 from tasks.models import *
 from auth import checklogon
+from django.conf import settings
+import codecs
+import json
 
 @csrf_protect
 def index(request):
@@ -18,3 +21,16 @@ def index(request):
     }
     return render(request, 'dashboard/index.html', c)
      
+def about(request):
+    """О системе"""
+    changes = {}
+    path = settings.STATIC_ROOT + '/changes.json'
+    with codecs.open(path, "r", "utf-8") as data:    
+        changes = json.load(data)
+    
+    c = {
+    'title': 'О системе',
+    'changes': changes,
+    }
+    
+    return render(request, 'dashboard/about.html', c)
