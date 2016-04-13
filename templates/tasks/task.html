@@ -41,7 +41,11 @@
     Статус: {{task.status}}<br>
     <strong>История:</strong><br>
     {% for status in task.usertaskstatus_set.all %}
-    {{status.status}} - {{status.date|date:"d.m.y"}} ({{status.user}})</br>
+    <p
+        {% if status.status.close_task %}
+        {% if status.date > task.date_end or status.date > task.parrent.date_end %}class="text-error"{% else %}class="text-success"{% endif %}
+        {% endif %}>
+        {{status.status}} - {{status.date|date:"d.m.y"}} {{status.user}} {% if status.reason != "" %}, {{ status.reason }}{% endif  %}</p>
     {% endfor%}
     {% if files %}
     <strong>Файлы:</strong><br>

@@ -10,7 +10,7 @@ from elmotor.models import Tncehfio, Naimceh
 from tasks.models import *
 from auth import check_login
 from django.db.models import Q
-from datetime import datetime
+import datetime
 import re
 import tempfile
 import shutil
@@ -28,7 +28,7 @@ def getdate(s_date):
     """Проверка даты с разными форматами ввода"""
     for fmt in ('%Y-%m-%d', '%d.%m.%Y', '%d.%m.%y','%d/%m/%y'):
         try:
-            return datetime.strptime(s_date, fmt)
+            return datetime.datetime.strptime(s_date, fmt)
         except ValueError:
             pass
     return None
@@ -155,10 +155,26 @@ def reguser(request, user):
     return HttpResponseRedirect("/to/users")
     
 @check_login
+@csrf_protect
 def task(request, user):
     """Изменение статуса задачи"""
-    id = request.GET.get('id',0)
-    status = request.GET.get('status','')
+    id = 0
+    reason = ""
+    status = ""
+    back_url = ""
+    
+    if request.method == 'GET':
+        id = request.GET.get('id',0)
+        status = request.GET.get('status','')
+    elif request.method == 'POST':
+        id = request.POST.get('id',0)
+        status = request.POST.get('status','')
+        reason = request.POST.get('reason','')
+        back_url = request.POST.get('back','')
+    
+    if back_url == "":
+        back_url = request.META.get('HTTP_REFERER')
+        
     if id != 0:
         dbtask = None
         try:
@@ -166,19 +182,33 @@ def task(request, user):
         except UserTask.DoesNotExist:
             dbtask = None
         if dbtask and (user.admin or user.cehuch == dbtask.cehuch or  (user.cehuch % 100 == 0 and user.cehuch / 100 == dbtask.cehuch / 100) or dbtask.doer_id == user.id  or dbtask.owner_id == user.id):      
-            present = datetime.now()
-
-            if dbtask.date_done and present < dbtask.date_done:
-                # Redirect to form for input reason
-                pass
-            if status != "":
-                status = Status.objects.get(name = status)
-                taskstatus  = UserTaskStatus(task = dbtask, status = status, user_id = user.id, reason ="");
+            today = datetime.date.today()
+            status = Status.objects.get(name = status)
+            
+            overdue = False
+            if dbtask.date_end and today > dbtask.date_end:
+                overdue = True
+            elif dbtask.parrent.date_end and today > dbtask.parrent.date_end:
+                overdue = True
+                            
+            if overdue and status.close_task and len(reason) == 0:
+                c = {
+                    'title': 'Ввод причины',
+                    'subtitle': 'выполнения позже установленного срока',
+                    'user':user,
+                    'task': dbtask,
+                    'status': status.name,
+                    'back': back_url,
+                }
+                return render(request, 'tasks/statusmsg.html', c)
+    
+            if status:
+                taskstatus  = UserTaskStatus(task = dbtask, status = status, user_id = user.id, reason = reason);
                 taskstatus.save();
                 
-            
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER')) # Redirect after POST
-    
+                
+    return HttpResponseRedirect(back_url) # Redirect after POST
+
   
 @check_login     
 @csrf_protect

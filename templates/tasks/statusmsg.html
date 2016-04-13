@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+{% block title %}{{title}}{% endblock %}
+{% block login %}{% endblock %}
+{% block content %}
+<div class="span3">
+&nbsp;
+</div>
+<div class="span6">
+    <h4>{{title}} {{subtitle}}</h4>
+    <form class="form-horizontal" method="post" action="/to/task" autocomplete="off" name="statusTaskForm" >
+      {% csrf_token %}
+      <input type="hidden" name="id" value="{{task.id}}"> 
+      <input type="hidden" name="status" value="{{status}}"> 
+      <input type="hidden" name="back" value="{{back}}"> 
+      <div class="control-group">
+        <label class="control-label" for="inputDesc">Причина</label>
+        <div class="controls">
+          <textarea id="inputDesc" placeholder="" name="reason" rows="10"></textarea>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <input type="submit" class="btn" value="Сохранить">
+          <a class="btn btn-default" href="{{ back }}">Вернуться</a>
+        </div>
+      </div>
+    </form>
+   
+</div>
+
+<div class="span3">
+&nbsp;
+</div>
+{% endblock %}
