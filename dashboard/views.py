@@ -26,7 +26,10 @@ def about(request):
     changes = {}
     path = settings.STATIC_ROOT + '/changes.json'
     with codecs.open(path, "r", "utf-8") as data:    
-        changes = json.load(data)
+        try:
+            changes = json.load(data)
+        except:
+            changes = {"Ошибка":["Ошибка получения изменений."]}
     
     c = {
     'title': 'О системе',
