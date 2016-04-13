@@ -10,6 +10,8 @@ from auth import checklogon
 from django.conf import settings
 import codecs
 import json
+import datetime
+from collections import OrderedDict
 
 @csrf_protect
 def index(request):
@@ -30,6 +32,10 @@ def about(request):
             changes = json.load(data)
         except:
             changes = {"Ошибка":["Ошибка получения изменений."]}
+    
+    changes = OrderedDict(sorted(changes.items(), key=lambda t: t[0], reverse=True))
+    
+    
     
     c = {
     'title': 'О системе',
