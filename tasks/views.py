@@ -265,28 +265,23 @@ def tasks(request, user, mode = "all"):
 def viewtask(request, user, id = 0):
     """Просмотр задачи"""
     task = None
-    subtask = None
     files = []
     if id != 0:
         try:
             task = UserTask.objects.get(pk = id)     
-            subtask = UserTask.objects.filter(parrent_id = id).all()
             files = get_task_files(task.id)
         except UserTask.DoesNotExist:
             task = None
     
-            
     cehname = get_cehname()
-    
     cehuch = dict((x.cehuch, x.name) for x in Naimceh.objects.all())
     
     c = {
     'title': 'Задача',
-    'cehname': cehname,
+    'cehuch_short': cehname,
     'cehuch':cehuch,
     'user': user,
     'task': task,
-    'subtask':subtask,
     'files': files,
     }
     return render(request, 'tasks/task.html', c)
