@@ -13,26 +13,44 @@
     «Электродвигатель»
     <br>
     {% if task.parrent == None %}
-    <strong>{{cehname|item:task.cehuch}}</strong>
+    <strong>{{cehuch_short|item:task.cehuch}}</strong>
+    {% else %}
+    
+    <strong>{{cehuch_short|item:task.parrent.cehuch}}</strong>
     {%endif%}
+    
     <br>
-    Служебная записка<br>
-    {% if task.task_num and task.task_num  != '' %}{{task.task_date|date:"d.m.Y"}} № {{task.task_num}}<br> {%else%}
-    {{task.date_start|date:"d.m.Y"}} # {{task.id}}
-    {%endif%}
+    
+    {% if task.task_num and task.task_num  != '' %}
+        Служебная записка<br>
+        {{ task.task_date|date:"d.m.Y" }} № {{ task.task_num }}<br>
+    {% else %}
+        Задача<br>
+        {{task.date_start|date:"d.m.Y"}} # {{task.id}}
+    {% endif %}
     </div>
     <div class="span4">
     </div>
     <div class="span2">
-    {% for t in subtask %}
-        &nbsp;{{cehname|item:t.cehuch}}{% if not forloop.last %},{% endif %}
+    {% if task.parrent == None %}
+    {% for t in task.subtasks.all %}
+        {{ cehuch_short|item:t.cehuch }}{% if not forloop.last %}, {% endif %}
     {% endfor %}
+    {% else %}
+        {{ cehuch|item:task.cehuch }}
+    {% endif %}
     </div>
     </div>
     <br>
-    <b>{{task.title}}</b><br><br>
+    <h5>{{task.title}}</h5>
             
-    <p style="text-indent:30px;">{{task.desc}}</p><br>
+    <p  class="indent-30" >{{task.desc|linebreaks }}</p>
+    {% if task.parrent == None %}
+        {% for subtask in task.subtasks.all %}
+            <h5>{{ cehuch|item:subtask.cehuch }} - {{ subtask.title }}</h5><p class="indent-30">{{ subtask.desc|linebreaks  }}</p>
+        {% endfor %}
+    {% endif %}
+    
     <p>Отв.: {{task.owner}}</p>
     <strong>Назначена:</strong> {{cehuch|item:task.cehuch}}<br>
     {% if task.doer and task.doer != '' %}<strong>Исполнитель:</strong> {{task.doer}}<br>{% endif%}
@@ -46,13 +64,13 @@
         {% if status.date > task.date_end or status.date > task.parrent.date_end %}class="text-error"{% else %}class="text-success"{% endif %}
         {% endif %}>
         {{status.status}} - {{status.date|date:"d.m.y"}} {{status.user}} {% if status.reason != "" %}, {{ status.reason }}{% endif  %}</p>
-    {% endfor%}
+    {% endfor %}
     {% if files %}
     <strong>Файлы:</strong><br>
     {% for name, url in files.items %}
     <a href="/to/media/{{url}}" target="_blank">{{name}}</a><br> 
-    {% endfor%}
-    {% endif%}
+    {% endfor %}
+    {% endif %}
     <br>
     <div class="btn-group">
         {% if not task.status.close_task %}

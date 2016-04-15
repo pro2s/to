@@ -36,7 +36,7 @@ class Status(models.Model):
         return u'%s' % (self.view_name)
     
 class UserTask(models.Model):
-    parrent  = models.ForeignKey("UserTask", null=True, blank=True)
+    parrent  = models.ForeignKey("UserTask", null=True, blank=True, related_name="subtasks", related_query_name="subtask")
     owner  = models.ForeignKey(RegistredUser, related_name="mytasks", related_query_name="mytask")
     doer  = models.ForeignKey(RegistredUser, related_name="tasks", related_query_name="task", null=True, blank=True)
     cehuch = models.IntegerField()

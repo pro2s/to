@@ -8,6 +8,7 @@ from django.shortcuts import render, render_to_response, get_object_or_404, Http
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from elmotor.models import Tncehfio, Naimceh
 from tasks.models import *
+from django.db.models import Count, Max, Sum
 from auth import check_login
 from django.db.models import Q
 import datetime
@@ -21,6 +22,7 @@ from django.core.files.base import ContentFile
 from django.conf import settings
 import json
 import codecs
+from collections import OrderedDict
 
 FILE_UPLOAD_DIR = settings.MEDIA_ROOT
 
@@ -231,7 +233,7 @@ def tasks(request, user, mode = "all"):
     for task in ptasks:
         data = {}
         subtasks = {}
-        subtasks_tmp = UserTask.objects.filter(parrent = task).all()
+        subtasks_tmp = UserTask.objects.filter(parrent = task).all().order_by('order')
         files = get_task_files(task.id)
         for subtask in subtasks_tmp:
             cehuch = subtask.cehuch
@@ -244,7 +246,9 @@ def tasks(request, user, mode = "all"):
             subtasks[ceh][cehuch].append(subtask)
         
         data["data"] = task         
+        subtasks = OrderedDict(sorted(subtasks.items(), key=lambda t: t[1].values()[0][0].order))
         data["subtasks"] = subtasks
+        
         data["files"] = files
         _tasks.append(data)
         
@@ -265,28 +269,22 @@ def tasks(request, user, mode = "all"):
 def viewtask(request, user, id = 0):
     """Просмотр задачи"""
     task = None
-    subtask = None
     files = []
     if id != 0:
         try:
             task = UserTask.objects.get(pk = id)     
-            subtask = UserTask.objects.filter(parrent_id = id).all()
             files = get_task_files(task.id)
         except UserTask.DoesNotExist:
             task = None
-    
-            
     cehname = get_cehname()
-    
     cehuch = dict((x.cehuch, x.name) for x in Naimceh.objects.all())
     
     c = {
     'title': 'Задача',
-    'cehname': cehname,
+    'cehuch_short': cehname,
     'cehuch':cehuch,
     'user': user,
     'task': task,
-    'subtask':subtask,
     'files': files,
     }
     return render(request, 'tasks/task.html', c)
@@ -307,11 +305,10 @@ def edittask(request, user, mode = "edit"):
     subtask = None
     if id != 0:
         try:
-            task = UserTask.objects.get(pk = id)   
-            subtask = UserTask.objects.filter(parrent_id = id).all()
+            task = UserTask.objects.annotate(count_sub = Count('subtask'), max_suborder = Max('subtask__order')).get(pk = id)   
+            subtask = UserTask.objects.filter(parrent_id = id).all().order_by('order')
         except UserTask.DoesNotExist:
             task = None
-            
     
     if mode == "new":
         title = "Новая задача"
@@ -324,13 +321,13 @@ def edittask(request, user, mode = "edit"):
     
     back_url = '/to/tasks'
     files = {}
+    next = 0
     if task != None:
         files = get_task_files(task.id)
         if task.parrent != None:
             back_url = '/to/edittask?id=%d' % task.parrent_id
-        
-            
-    
+        else:
+            next = max(task.count_sub, task.max_suborder)        
     c = {
     'title': title,
     'cehname': cehname,
@@ -342,6 +339,7 @@ def edittask(request, user, mode = "edit"):
     'files': files,
     'mode':mode,
     'subtask':subtask,
+    'next_order': next,
     'parrent':parrent,
     'return':back_url,
     }
@@ -373,8 +371,12 @@ def savetask(request, user):
     if parrent == '':
         parrent = None
     else:
-        parrent = int(parrent)
-        
+        try: 
+            parrent = int(parrent)
+            parrent = UserTask.objects.annotate(count_sub = Count('subtask'), max_suborder = Max('subtask__order')).get(pk = parrent)   
+        except:
+            parrent = None
+            
     if doer == '':
         doer = None
         
@@ -382,11 +384,10 @@ def savetask(request, user):
         cehuch = int(ceh) * 100
 
     task = None
-    subtask = None
+    
     if id != "" and mode != "new" :
         try:
-            task = UserTask.objects.get(pk = id)   
-            subtask = UserTask.objects.filter(parrent_id = id).all()
+            task = UserTask.objects.annotate(count_sub = Count('subtask'), max_suborder = Max('subtask__order')).get(pk = id)   
         except UserTask.DoesNotExist:
             task = None
             
@@ -402,8 +403,10 @@ def savetask(request, user):
             task_num = task_num,
             task_date = task_date,
         )
-        if parrent != 0:
-            task.parrent_id = parrent
+        if parrent:
+            task.parrent_id = parrent.id
+            task.order = max(parrent.count_sub, parrent.max_suborder) + 1        
+            
         if date_start:
             task.date_start = date_start
 
@@ -415,7 +418,7 @@ def savetask(request, user):
         task.desc = desc
         task.task_num = task_num
         task.task_date = task_date
-            
+        
     if task:
         task.save()
         mode = "edit"
@@ -426,12 +429,58 @@ def savetask(request, user):
         except:
             pass  
     
-    if parrent != 0:
-        id = parrent
+    if parrent:
+        id = parrent.id
     
     return HttpResponseRedirect("/to/edittask?mode=%s&id=%d" % (mode, id))
 
-
+@check_login     
+@csrf_protect
+def reorder(request, user):
+    """Перемещение задач"""
+    id = request.GET.get('id','')
+    direct = request.GET.get('go','')
+    
+    if id != "":
+        try:
+            id = int(id)
+            task = UserTask.objects.get(pk = id)   
+            alltask = UserTask.objects.filter(parrent_id = task.parrent.id).all().order_by('order')
+        except UserTask.DoesNotExist:
+            task = None
+    
+    if task and task.parrent and (user.admin or  task.owner_id == user.id):
+        num = 0
+        prev = None
+        moveUp = 0
+        for t in alltask:
+            num += 1
+            
+            if t.order != num:
+                t. order  = num
+                t.save()
+            
+            if moveUp > 0:
+                t.order  = moveUp
+                t.save()
+                moveUp = 0
+                
+            if id == t.id:
+                if direct == "up" and prev != None:
+                    t.order = t.order - 1 
+                    t.save()
+                    prev.order = prev.order + 1
+                    prev.save()
+                if direct == "down":
+                    moveUp = num
+                    t.order = t.order + 1;
+                    t.save()
+                    
+            prev = t
+        
+    back_url = request.META.get('HTTP_REFERER')
+    return HttpResponseRedirect(back_url)
+         
 @check_login     
 @csrf_protect
 def file(request, user):
