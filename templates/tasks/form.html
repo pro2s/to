@@ -124,16 +124,24 @@
 <a class="btn btn-default" href="/to/newtask?parrent={{task.id}}"><i class="icon-plus"></i>Новая подзадача</a></br>
 <table class="table">
 <thead>
-<tr><th>#</th><th>Заголовок</th><th>Цех.Уч.</th><th>Действия</th></tr>
+<tr><th>#</th><th>Заголовок</th><th>Цех.Уч.</th><th>Порядок</th><th>Действия</th></tr>
 </thead>
 <tbody>
 {% for t in subtask %}
 <tr>
     <td>{{t.id}}</td><td>{{t.title}}</td><td>({{t.cehuch}})</td>
     <td>
+    <div class="btn-group order">
+        <a class="btn btn-default" href="/to/reorder?id={{ t.id }}&go=up" role="button"><i class="icon-chevron-up"></i></a>
+        <a class="btn btn-default" href="#" role="button">{%  if t.order == 0 %}{{ forloop.counter }}{% else %}<b>{{ t.order }}</b>{% endif %}</a>
+        <a class="btn btn-default" href="/to/reorder?id={{ t.id }}&go=down" role="button"><i class="icon-chevron-down"></i></a>
+    </div>
+    </td>
+    <td>
     <div class="btn-group">
-            <a class="btn btn-default" href="/to/edittask?id={{t.id}}"><i class="icon-pencil"></i> Изменить</a>
+            <a class="btn btn-default" href="/to/edittask?id={{t.id}}"><i class="icon-pencil"></i></a>
             <a class="btn btn-danger" href="/to/deltask?id={{t.id}}" role="button"><i class="icon-remove icon-white"></i></a>
+    </div>
     </td>
 </tr>
 {% endfor %}
