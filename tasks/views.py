@@ -272,7 +272,8 @@ def viewtask(request, user, id = 0):
     files = []
     if id != 0:
         try:
-            task = UserTask.objects.get(pk = id)     
+            task = UserTask.objects.get(pk = id)
+            subtasks = UserTask.objects.filter(parrent_id = id).all().order_by('order')
             files = get_task_files(task.id)
         except UserTask.DoesNotExist:
             task = None
@@ -284,6 +285,7 @@ def viewtask(request, user, id = 0):
     'cehuch_short': cehname,
     'cehuch':cehuch,
     'user': user,
+    'subtasks': subtasks,
     'task': task,
     'files': files,
     }
