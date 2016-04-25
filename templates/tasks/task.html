@@ -33,8 +33,8 @@
     </div>
     <div class="span2">
     {% if task.parrent == None %}
-    {% for t in task.subtasks.all %}
-        {{ cehuch_short|item:t.cehuch }}{% if not forloop.last %}, {% endif %}
+    {% for t in subtasks %}
+        {{ cehuch_short|item:t.cehuch }}{% if not forloop.last %}, {% endif %}<br>
     {% endfor %}
     {% else %}
         {{ cehuch|item:task.cehuch }}
@@ -46,7 +46,7 @@
             
     <p  class="indent-30" >{{task.desc|linebreaks }}</p>
     {% if task.parrent == None %}
-        {% for subtask in task.subtasks.all %}
+        {% for subtask in subtasks %}
             <h5>{{ cehuch|item:subtask.cehuch }} - {{ subtask.title }}</h5><p class="indent-30">{{ subtask.desc|linebreaks  }}</p>
         {% endfor %}
     {% endif %}
